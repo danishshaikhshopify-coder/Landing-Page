@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Danish Shaikh — Shopify Developer &amp; Expert</title>
+<meta name="description" content="Danish Shaikh builds high-performing Shopify stores for growing brands — thoughtful design, custom development and conversion-focused optimization." />
+<meta name="theme-color" content="#0a0a0a" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#ffffff; --fg:#111111;
+  --ink:#0a0a0a;
+  --muted:#8d8d8d; --subtle:#b6b6b6;
+  --line:#e6e5e2;
+  --surface:#f1f0ee; --surface-2:#e3e2df;
+  --accent:#b15f2c; --accent-from:#cf8047; --accent-to:#97501f;
+  --radius-pill:9999px; --radius-card:2rem; --radius-card-sm:1.25rem; --radius-control:0.875rem;
+  --shell:80rem;
+  --ease: cubic-bezier(.22,1,.36,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--fg);font-family:'Onest',sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+ul{list-style:none}
+img{display:block;max-width:100%}
+.shell{max-width:var(--shell);margin-inline:auto;padding-inline:1.5rem}
+@media(min-width:640px){.shell{padding-inline:2rem}}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+@media (prefers-reduced-motion: reduce){*{animation:none !important;transition:none !important}}
+
+/* ---------- type ---------- */
+.eyebrow{display:inline-flex;align-items:center;gap:.5rem;font-size:.85rem;font-weight:500;color:rgba(17,17,17,.6)}
+.eyebrow::before{content:'';width:.4rem;height:.4rem;border-radius:50%;background:var(--accent)}
+.eyebrow.light{color:rgba(255,255,255,.7)}
+.eyebrow.light::before{background:var(--accent-from)}
+h1,h2,h3{font-weight:600;letter-spacing:-.02em;line-height:1.05}
+.section-head{max-width:40rem;margin-bottom:3rem}
+.section-head h2{font-size:clamp(1.9rem,4vw,2.75rem);margin-top:.75rem}
+.section-head p{margin-top:1rem;font-size:1.02rem;color:rgba(17,17,17,.6)}
+section{padding-block:5.5rem}
+@media(min-width:1024px){section{padding-block:7.5rem}}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;gap:.75rem;border-radius:var(--radius-pill);font-size:.9rem;font-weight:500;padding:.9rem 1.75rem;transition:transform .3s var(--ease),background .3s,border-color .3s}
+.btn:hover{transform:translateY(-2px)}
+.btn.dark{background:var(--ink);color:#fff}
+.btn.outline{border:1px solid var(--line);color:var(--fg)}
+.btn.outline:hover{border-color:rgba(17,17,17,.4)}
+.btn.light{background:#fff;color:var(--ink)}
+.btn .arrow{width:2.1rem;height:2.1rem;border-radius:50%;display:grid;place-items:center;background:#fff;color:var(--ink);flex-shrink:0;transition:transform .3s var(--ease)}
+.btn.outline .arrow,.btn.light .arrow{background:var(--ink);color:#fff}
+.btn:hover .arrow{transform:translate(3px,-3px)}
+
+/* ---------- hero ---------- */
+#home{position:relative;padding-top:6rem;padding-bottom:4rem;background:
+  radial-gradient(60% 50% at 85% 15%,rgba(177,95,44,.12),transparent 60%),
+  linear-gradient(180deg,#faf9f7,#ffffff 60%)}
+.hero-grid{display:grid;grid-template-columns:1fr;gap:3rem;align-items:center}
+@media(min-width:1024px){.hero-grid{grid-template-columns:1.1fr .9fr;gap:2rem}}
+.hero-role{margin-top:.5rem;font-size:1rem;font-weight:500;color:rgba(17,17,17,.5)}
+.hero-copy h1{margin-top:1rem;font-size:clamp(2.4rem,5.4vw,4.2rem);max-width:15ch}
+.hero-copy p{margin-top:1.5rem;max-width:34ch;font-size:1.05rem;color:rgba(17,17,17,.65)}
+.hero-stats{display:flex;gap:2.25rem;margin-top:3rem;flex-wrap:wrap}
+.hero-stats div b{display:block;font-size:1.4rem;font-weight:700}
+.hero-stats div span{font-size:.8rem;color:rgba(17,17,17,.5)}
+.hero-visual{position:relative;display:flex;justify-content:center;padding-block:1rem}
+.hero-visual .glow{position:absolute;inset:8% 12%;border-radius:50%;background:radial-gradient(circle,rgba(177,95,44,.2),transparent 68%);filter:blur(30px);z-index:0}
+.hero-visual img{position:relative;z-index:2;width:min(82%,23rem);max-height:32rem;object-fit:contain;filter:drop-shadow(0 45px 55px rgba(0,0,0,.4)) drop-shadow(0 8px 16px rgba(0,0,0,.2))}
+.hero-badge{position:absolute;background:#fff;border:1px solid var(--line);border-radius:1rem;padding:.75rem 1rem;font-size:.78rem;font-weight:500;box-shadow:0 20px 40px -24px rgba(0,0,0,.35);z-index:3}
+.hero-badge.b1{top:6%;left:0}
+.hero-badge.b2{bottom:10%;right:0}
+.hero-badge b{display:block;font-size:1rem}
+
+/* ---------- featured store ---------- */
+#featured{background:var(--surface)}
+.featured-grid{display:grid;grid-template-columns:1fr;gap:3rem}
+@media(min-width:1024px){.featured-grid{grid-template-columns:.8fr 1.2fr;align-items:center}}
+.featured-copy p{color:rgba(17,17,17,.65);margin-top:1rem;font-size:.98rem;line-height:1.6}
+.featured-copy .label{font-size:.75rem;text-transform:uppercase;letter-spacing:.06em;color:var(--accent);font-weight:600;margin-top:1.75rem}
+.featured-copy .label:first-of-type{margin-top:1.75rem}
+.browser-frame{background:#0a0a0a;border-radius:1.5rem;padding:.75rem;box-shadow:0 60px 80px -40px rgba(0,0,0,.45)}
+.browser-bar{display:flex;align-items:center;justify-content:space-between;padding:.4rem .5rem .8rem}
+.browser-dots{display:flex;gap:.4rem}
+.browser-dots span{width:.55rem;height:.55rem;border-radius:50%;background:rgba(255,255,255,.25)}
+.browser-tag{font-size:.7rem;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.06em}
+.browser-viewport{position:relative;height:30rem;overflow:hidden;border-radius:1rem;background:#fff}
+.browser-viewport img{width:100%;transform:translateY(0)}
+.hover-hint{position:absolute;left:50%;bottom:1rem;transform:translateX(-50%);background:rgba(10,10,10,.75);color:#fff;font-size:.72rem;padding:.4rem .8rem;border-radius:var(--radius-pill);pointer-events:none;transition:opacity .3s}
+.browser-viewport:hover .hover-hint,.panel-body:hover .hover-hint{opacity:0}
+.toggle-before{margin-top:.8rem;display:inline-flex;align-items:center;gap:.5rem;font-size:.78rem;color:rgba(255,255,255,.75);border:1px solid rgba(255,255,255,.2);border-radius:var(--radius-pill);padding:.45rem .9rem}
+.toggle-before:hover{color:#fff;border-color:rgba(255,255,255,.4)}
+
+/* ---------- selected work / scroll-driven glass project carousel ---------- */
+#work{background:#fff;padding-block:0}
+.work-pin{min-height:100vh;display:flex;flex-direction:column;justify-content:center;overflow:hidden;padding-block:4rem;gap:3rem}
+.work-fan{position:relative;height:clamp(26rem,52vh,34rem);width:100%}
+.work-card{position:absolute;top:50%;left:50%;width:min(24rem,32vw);aspect-ratio:3/4.1;border-radius:1.75rem;overflow:hidden;background:var(--surface);box-shadow:0 50px 90px -30px rgba(0,0,0,.4),inset 0 0 0 1px rgba(255,255,255,.5);will-change:transform,filter,opacity}
+.work-card::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.35),rgba(255,255,255,0) 45%);mix-blend-mode:overlay;pointer-events:none}
+.work-card img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+@media(max-width:899px),(prefers-reduced-motion:reduce){
+  .work-pin{min-height:0;gap:2rem}
+  .work-fan{position:static;height:auto;display:flex;flex-direction:column;align-items:center;gap:2.5rem}
+  .work-card{position:static;width:min(22rem,80vw);transform:none !important;filter:none !important}
+}
+
+/* ---------- figma to live (athlekt) ---------- */
+#figma-to-live{background:var(--surface);padding-block:0}
+.figma-pin{min-height:100vh;display:flex;flex-direction:column;justify-content:center;gap:2.5rem;padding-block:4rem}
+.figma-head{max-width:36rem;margin-inline:auto;text-align:center}
+.h2-compact{margin-top:.75rem;font-size:clamp(1.8rem,3.6vw,2.6rem)}
+.compare-stage{display:grid;grid-template-columns:1fr auto 1fr;gap:1.5rem;align-items:center;width:100%;max-width:68rem;margin-inline:auto}
+.compare-col{min-width:0}
+.compare-label{display:block;font-size:.75rem;text-transform:uppercase;letter-spacing:.07em;font-weight:600;color:var(--accent);margin-bottom:.75rem}
+.compare-connector{display:none;font-size:1.75rem;color:var(--subtle);font-weight:300}
+@media(min-width:900px){.compare-connector{display:block}}
+.panel{position:relative;width:100%;height:clamp(20rem,52vh,28rem);background:var(--ink);border-radius:1.5rem;padding:.75rem;box-shadow:0 60px 90px -40px rgba(0,0,0,.5);display:flex;flex-direction:column}
+.panel-body{position:relative;flex:1;border-radius:.9rem;overflow:hidden;background:#3a3a3a}
+.figma-panel .panel-body img{width:100%;height:100%;object-fit:contain}
+.live-panel .panel-body{background:#fff}
+.live-panel .panel-body img{position:absolute;top:0;left:0;width:100%}
+@media(max-width:899px){.figma-pin{min-height:0;padding-block:4rem}.compare-stage{grid-template-columns:1fr;gap:2rem}.panel{height:20rem}.live-panel .panel-body img{position:static;object-fit:cover;object-position:top;height:100%}}
+
+/* ---------- website before & after (testallwater) ---------- */
+#before-after{background:#fff}
+.ba-grid{display:grid;grid-template-columns:1fr;gap:2rem;margin-top:3rem}
+@media(min-width:900px){.ba-grid{grid-template-columns:1fr 1fr;gap:2.5rem}}
+.ba-label{display:inline-block;font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;font-weight:600;margin-bottom:.9rem;color:rgba(17,17,17,.45)}
+.ba-after .ba-label{color:var(--accent)}
+.ba-viewport{height:22rem}
+
+/* ---------- services ---------- */
+#services{background:var(--surface);padding-block:0}
+.services-pin{min-height:100vh;display:flex;flex-direction:column;justify-content:center;gap:2rem;padding-block:4rem}
+.services-viewport{width:100%;max-width:64rem;margin-inline:auto;overflow:hidden}
+.services-track{display:flex;gap:2.5rem}
+.service-slide{flex:0 0 min(30rem,78%);display:grid;grid-template-columns:1fr;gap:1.25rem;align-items:center;opacity:.35;transform:scale(.94);transition:opacity .4s var(--ease),transform .4s var(--ease)}
+@media(min-width:640px){.service-slide{grid-template-columns:.9fr 1.1fr}}
+.service-slide.is-active{opacity:1;transform:scale(1)}
+.service-visual{display:flex;align-items:center;justify-content:center;background:#fff;border-radius:1.25rem;height:13.5rem;color:rgba(17,17,17,.7)}
+.service-visual svg{width:58%;max-width:8.5rem;height:auto}
+.service-slide .snum{display:block;font-size:clamp(2.2rem,5vw,3.2rem);font-weight:700;color:rgba(17,17,17,.12);line-height:1}
+.service-slide h3{margin-top:.3rem;font-size:clamp(1.3rem,2.2vw,1.7rem)}
+.service-slide p{margin-top:.6rem;color:rgba(17,17,17,.6);font-size:.95rem;max-width:28ch}
+.services-footer{display:flex;flex-direction:column;align-items:center;gap:.75rem;max-width:30rem;margin-inline:auto;width:100%}
+.services-indicator{font-size:.85rem;color:rgba(17,17,17,.45);font-weight:500}
+.services-indicator b{color:var(--ink)}
+.services-line{position:relative;width:100%;height:1px;background:var(--line)}
+.services-line-fill{position:absolute;top:0;left:0;height:1px;width:0;background:var(--accent)}
+@media(max-width:899px),(prefers-reduced-motion:reduce){
+  .services-pin{min-height:0;padding-block:4rem}
+  .services-viewport{overflow:visible}
+  .services-track{flex-direction:column;gap:3rem}
+  .service-slide{flex-basis:auto;opacity:1;transform:none}
+  .services-footer{display:none}
+}
+
+/* ---------- how i work (pinned horizontal process) ---------- */
+#process{background:#fff;padding-block:0}
+.process-pin{min-height:100vh;display:flex;flex-direction:column;justify-content:center;gap:2rem;padding-block:4rem}
+.process-stage-wrap{position:relative;width:100%;max-width:64rem;margin-inline:auto;height:clamp(20rem,42vh,23rem)}
+.process-panel{position:absolute;inset:0;display:grid;grid-template-columns:1fr;gap:1.5rem;align-items:center}
+@media(min-width:900px){.process-panel{grid-template-columns:1.1fr .9fr;gap:2.5rem}}
+.process-panel .pnum{display:block;font-size:clamp(2.6rem,6vw,4.2rem);font-weight:700;color:rgba(17,17,17,.1);line-height:1;letter-spacing:-.02em}
+.process-panel h3{margin-top:.4rem;font-size:clamp(1.5rem,2.6vw,2.1rem)}
+.process-panel p{margin-top:.9rem;color:rgba(17,17,17,.6);font-size:1rem;max-width:32ch}
+.process-visual{display:flex;align-items:center;justify-content:center;color:rgba(17,17,17,.7)}
+.process-visual svg{width:100%;max-width:15rem;height:auto}
+
+.process-footer{display:flex;flex-direction:column;align-items:center;gap:1.1rem;width:100%;max-width:38rem;margin-inline:auto}
+.process-indicator{font-size:.85rem;color:rgba(17,17,17,.45);font-weight:500}
+.process-indicator b{color:var(--ink)}
+.process-nav{position:relative;display:flex;align-items:flex-start;width:100%}
+.process-nav-line{position:absolute;top:1.1rem;left:0;right:0;height:1px;background:var(--line)}
+.process-nav-line-fill{position:absolute;top:1.1rem;left:0;height:1px;background:var(--accent);width:0}
+.process-nav-item{position:relative;z-index:1;flex:1;display:flex;flex-direction:column;align-items:center;gap:.6rem;background:none;border:none;cursor:pointer;padding-block:0}
+.process-nav-dot{width:2.25rem;height:2.25rem;border-radius:50%;background:#fff;border:1px solid var(--line);display:grid;place-items:center;font-size:.78rem;font-weight:600;color:rgba(17,17,17,.4);transition:all .3s var(--ease)}
+.process-nav-item.is-active .process-nav-dot{background:var(--ink);border-color:var(--ink);color:#fff;transform:scale(1.1)}
+.process-nav-item.is-done .process-nav-dot{border-color:var(--accent);color:var(--accent)}
+.process-nav-label{font-size:.72rem;color:rgba(17,17,17,.45);text-align:center}
+.process-nav-item.is-active .process-nav-label{color:var(--ink);font-weight:600}
+
+@media(max-width:899px),(prefers-reduced-motion:reduce){
+  .process-pin{min-height:0;padding-block:4rem}
+  .process-stage-wrap{position:static;height:auto;display:flex;flex-direction:column;gap:3.5rem}
+  .process-panel{position:static;opacity:1;transform:none}
+  .process-footer{display:none}
+}
+
+/* ---------- reviews (native testimonial cards) ---------- */
+#reviews{background:var(--surface)}
+.review-grid{display:grid;grid-template-columns:1fr;gap:1.5rem;align-items:start}
+@media(min-width:700px){.review-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1024px){.review-grid{grid-template-columns:repeat(3,1fr)}}
+.review-card{position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--radius-card-sm);padding:1.75rem;display:flex;flex-direction:column;gap:1.1rem;transition:border-color .3s,transform .3s var(--ease)}
+.review-card:hover{border-color:rgba(17,17,17,.2);transform:translateY(-3px)}
+.review-top{display:flex;align-items:center;gap:.85rem}
+.review-avatar{width:2.75rem;height:2.75rem;border-radius:50%;display:grid;place-items:center;font-weight:700;font-size:1rem;color:#fff;flex-shrink:0}
+.review-who{display:flex;flex-direction:column;gap:.25rem;min-width:0}
+.review-name{font-weight:600;font-size:.95rem}
+.review-country{display:flex;align-items:center;gap:.4rem;font-size:.82rem;color:rgba(17,17,17,.55)}
+.review-badge{margin-left:auto;align-self:flex-start;font-size:.68rem;font-weight:500;color:rgba(17,17,17,.6);background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-pill);padding:.3rem .7rem;white-space:nowrap}
+.review-meta{display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:rgba(17,17,17,.4)}
+.review-stars{color:var(--accent);letter-spacing:.12em;font-size:.85rem}
+.review-score{font-weight:600;color:var(--ink)}
+.review-text{font-size:.98rem;line-height:1.65;color:rgba(17,17,17,.72);display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.review-text.is-expanded{-webkit-line-clamp:unset;overflow:visible}
+.review-more{align-self:flex-start;font-size:.82rem;font-weight:600;color:var(--accent)}
+.review-more:hover{text-decoration:underline}
+.review-stats{display:flex;align-items:center;gap:1rem;margin-top:auto;padding-top:1.1rem;border-top:1px solid var(--line)}
+.review-stats div b{display:block;font-size:.92rem;font-weight:600}
+.review-stats div span{font-size:.75rem;color:rgba(17,17,17,.45)}
+.review-stat-divider{width:1px;height:1.6rem;background:var(--line)}
+
+/* ---------- why ---------- */
+#why{background:#fff}
+
+/* ---------- closing ---------- */
+#closing{background:var(--ink);color:#fff;border-radius:2rem 2rem 0 0;position:relative;overflow:hidden}
+.stat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2.5rem;margin-top:3.5rem}
+@media(min-width:768px){.stat-grid{grid-template-columns:repeat(4,1fr)}}
+.stat b{font-size:clamp(2rem,4vw,2.8rem);font-weight:700}
+.stat span{display:block;margin-top:.4rem;font-size:.82rem;color:rgba(255,255,255,.55)}
+.cta-block{margin-top:5rem;border-top:1px solid rgba(255,255,255,.12);padding-top:3.5rem;display:flex;flex-direction:column;gap:1.75rem}
+@media(min-width:900px){.cta-block{flex-direction:row;align-items:flex-end;justify-content:space-between}}
+.cta-block h2{font-size:clamp(1.9rem,4.4vw,3.2rem);max-width:16ch}
+.cta-block p{color:rgba(255,255,255,.6);margin-top:.75rem;max-width:32ch}
+footer.legal{margin-top:4rem;border-top:1px solid rgba(255,255,255,.1);padding-top:1.75rem;display:flex;flex-direction:column;gap:.75rem;font-size:.78rem;color:rgba(255,255,255,.45)}
+@media(min-width:768px){footer.legal{flex-direction:row;justify-content:space-between}}
+.watermark{position:absolute;inset-inline:0;bottom:-2rem;text-align:center;font-weight:700;font-size:min(16vw,11rem);color:rgba(255,255,255,.04);pointer-events:none;user-select:none}
+</style>
+</head>
+<body>
+
+<a href="#main" class="sr-only">Skip to content</a>
+
+<main id="main">
+
+  <!-- 01 HERO -->
+  <section id="home">
+    <div class="shell hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow">Danish Shaikh</span>
+        <p class="hero-role">Shopify Developer &amp; Expert</p>
+        <h1>Building Better Shopify Stores.</h1>
+        <p class="hero-sub">I design and develop high-performing Shopify stores with custom functionality, better user experiences and conversion-focused solutions.</p>
+        <div class="hero-stats">
+          <div><b>3+</b><span>Years on Shopify</span></div>
+          <div><b>70+</b><span>Projects shipped</span></div>
+          <div><b>100%</b><span>Job Success Score</span></div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="glow"></div>
+        <div class="hero-badge b1">⭐ Upwork<br><b>Top Rated</b></div>
+        <img src="images/portrait_red_cream_transparent.png" alt="Portrait of Danish Shaikh, Shopify developer" width="1086" height="1448">
+        <div class="hero-badge b2">Figma → Shopify<br><b>Pixel-accurate</b></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 FEATURED STORE WALKTHROUGH -->
+  <section id="featured">
+    <div class="shell featured-grid">
+      <div class="featured-copy" data-reveal>
+        <span class="eyebrow">Case Study</span>
+        <h2 class="h2-compact">From a cluttered catalog to a store that converts.</h2>
+        <div class="label">The problem</div>
+        <p>TestAllWater's storefront had grown into a maze — dense navigation, repeated chat prompts on every section, and product cards with no visual rhythm.</p>
+        <div class="label">What I changed</div>
+        <p>I rebuilt the homepage around a clear hierarchy: a focused hero, categorized collections, and one consistent product-card system.</p>
+        <div class="label">The result</div>
+        <p>Customers now find the right test kit in fewer clicks — and the store finally looks as credible as the business behind it.</p>
+      </div>
+      <div data-reveal>
+        <div class="browser-frame">
+          <div class="browser-bar">
+            <span class="browser-dots"><span></span><span></span><span></span></span>
+            <span class="browser-tag" id="frameLabel">testallwater.co.uk — After</span>
+          </div>
+          <div class="browser-viewport" id="featuredViewport">
+            <img src="images/testallwater-after.png" id="featuredImg" alt="TestAllWater homepage after redesign" data-state="after">
+            <span class="hover-hint">Hover to scroll the homepage ↓</span>
+          </div>
+        </div>
+        <button class="toggle-before" id="toggleBeforeBtn">See the original "before" homepage</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 SELECTED WORK — fanned project cards (populated by WORK_IMAGES in script) -->
+  <section id="work">
+    <div class="work-pin">
+      <div class="shell">
+        <div class="section-head" data-reveal>
+          <span class="eyebrow">Selected Work</span>
+          <h2>A closer look at projects I've shipped.</h2>
+        </div>
+      </div>
+      <div class="work-fan" id="workFan"></div>
+    </div>
+  </section>
+
+  <!-- 04 FIGMA DESIGN TO LIVE SHOPIFY — Athlekt -->
+  <section id="figma-to-live">
+    <div class="shell figma-pin">
+      <div class="figma-head" data-reveal>
+        <span class="eyebrow">Figma to Live Shopify</span>
+        <h2 class="h2-compact">From Figma Design to a Fully Developed Shopify Store.</h2>
+      </div>
+      <div class="compare-stage">
+        <div class="compare-col figma-col">
+          <span class="compare-label">01 — Figma Design</span>
+          <div class="panel figma-panel">
+            <div class="browser-bar">
+              <span class="browser-dots"><span></span><span></span><span></span></span>
+              <span class="browser-tag">Figma — Design File</span>
+            </div>
+            <div class="panel-body"><img src="images/athlekt-figma-design.png" alt="Athlekt Figma design file" loading="lazy"></div>
+          </div>
+        </div>
+        <span class="compare-connector" aria-hidden="true">→</span>
+        <div class="compare-col live-col">
+          <span class="compare-label">02 — Live Shopify Store</span>
+          <div class="panel live-panel">
+            <div class="browser-bar">
+              <span class="browser-dots"><span></span><span></span><span></span></span>
+              <span class="browser-tag">athlekt.com — Live</span>
+            </div>
+            <div class="panel-body"><img src="images/athlekt-live-store.png" alt="Athlekt live Shopify store" id="figmaLiveImg" loading="lazy"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 WEBSITE BEFORE & AFTER — TestAllWater -->
+  <section id="before-after">
+    <div class="shell">
+      <div class="section-head" data-reveal>
+        <span class="eyebrow">Website Before &amp; After</span>
+        <h2>A real TestAllWater redesign, side by side.</h2>
+      </div>
+      <div class="ba-grid">
+        <div class="ba-col ba-before">
+          <span class="ba-label">Before</span>
+          <div class="browser-frame">
+            <div class="browser-bar">
+              <span class="browser-dots"><span></span><span></span><span></span></span>
+              <span class="browser-tag">testallwater.co.uk</span>
+            </div>
+            <div class="browser-viewport ba-viewport">
+              <img src="images/testallwater-before.png" alt="TestAllWater homepage before redesign" loading="lazy">
+            </div>
+          </div>
+        </div>
+        <div class="ba-col ba-after">
+          <span class="ba-label">After</span>
+          <div class="browser-frame">
+            <div class="browser-bar">
+              <span class="browser-dots"><span></span><span></span><span></span></span>
+              <span class="browser-tag">testallwater.co.uk</span>
+            </div>
+            <div class="browser-viewport ba-viewport">
+              <img src="images/testallwater-after.png" alt="TestAllWater homepage after redesign" loading="lazy">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 SERVICES -->
+  <section id="services">
+    <div class="services-pin">
+      <div class="shell">
+        <div class="section-head" data-reveal>
+          <span class="eyebrow">What I Do</span>
+          <h2>Services that cover the whole store, not just the surface.</h2>
+          <p>From storefront design to custom development, everything your Shopify store needs to perform better.</p>
+        </div>
+
+        <div class="services-viewport" id="servicesViewport">
+          <div class="services-track" id="servicesTrack">
+            <div class="service-slide">
+              <div class="service-visual">
+                <svg viewBox="0 0 160 160" fill="none" aria-hidden="true">
+                  <rect x="20" y="30" width="120" height="90" rx="8" stroke="currentColor" stroke-width="1.5"/>
+                  <line x1="20" y1="48" x2="140" y2="48" stroke="currentColor" stroke-width="1.5"/>
+                  <rect x="32" y="60" width="52" height="48" rx="4" stroke="currentColor" stroke-width="1.5"/>
+                  <circle cx="106" cy="72" r="9" fill="var(--accent)"/>
+                  <circle cx="124" cy="72" r="9" fill="var(--surface-2)"/>
+                  <circle cx="115" cy="90" r="9" fill="var(--ink)" opacity=".65"/>
+                </svg>
+              </div>
+              <div class="service-text">
+                <span class="snum">01</span>
+                <h3>Store Design &amp; Redesign</h3>
+                <p>Beautiful, user-friendly Shopify storefronts.</p>
+              </div>
+            </div>
+            <div class="service-slide">
+              <div class="service-visual">
+                <svg viewBox="0 0 160 160" fill="none" aria-hidden="true">
+                  <rect x="20" y="30" width="120" height="90" rx="8" stroke="currentColor" stroke-width="1.5"/>
+                  <line x1="20" y1="48" x2="140" y2="48" stroke="currentColor" stroke-width="1.5"/>
+                  <rect x="34" y="60" width="92" height="12" rx="3" stroke="currentColor" stroke-width="1.5"/>
+                  <rect x="34" y="80" width="60" height="12" rx="3" stroke="currentColor" stroke-width="1.5"/>
+                  <circle cx="118" cy="98" r="16" fill="#fff" stroke="var(--accent)" stroke-width="2"/>
+                  <circle cx="118" cy="98" r="4.5" fill="var(--accent)"/>
+                  <path d="M118 86v4M118 106v4M106 98h4M126 98h4" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div class="service-text">
+                <span class="snum">02</span>
+                <h3>Custom Theme Development</h3>
+                <p>Custom Shopify themes built around your brand.</p>
+              </div>
+            </div>
+            <div class="service-slide">
+              <div class="service-visual">
+                <svg viewBox="0 0 160 160" fill="none" aria-hidden="true">
+                  <path d="M58 40c-10 0-14 6-14 16v8c0 8-4 12-10 16 6 4 10 8 10 16v8c0 10 4 16 14 16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                  <path d="M102 40c10 0 14 6 14 16v8c0 8 4 12 10 16-6 4-10 8-10 16v8c0 10-4 16-14 16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                  <rect x="68" y="70" width="24" height="10" rx="2.5" fill="var(--accent)"/>
+                  <rect x="68" y="86" width="24" height="10" rx="2.5" stroke="currentColor" stroke-width="1.5"/>
+                </svg>
+              </div>
+              <div class="service-text">
+                <span class="snum">03</span>
+                <h3>Liquid &amp; Custom Sections</h3>
+                <p>Custom layouts and functionality using Shopify Liquid.</p>
+              </div>
+            </div>
+            <div class="service-slide">
+              <div class="service-visual">
+                <svg viewBox="0 0 160 160" fill="none" aria-hidden="true">
+                  <rect x="18" y="56" width="42" height="42" rx="6" transform="rotate(-8 39 77)" stroke="var(--accent)" stroke-width="1.5"/>
+                  <line x1="66" y1="80" x2="92" y2="80" stroke="currentColor" stroke-width="1.5"/>
+                  <path d="M86 73l7 7-7 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  <rect x="100" y="44" width="42" height="72" rx="6" stroke="currentColor" stroke-width="1.5"/>
+                  <line x1="100" y1="58" x2="142" y2="58" stroke="currentColor" stroke-width="1.5"/>
+                </svg>
+              </div>
+              <div class="service-text">
+                <span class="snum">04</span>
+                <h3>Figma to Shopify</h3>
+                <p>Turning Figma designs into responsive Shopify stores.</p>
+              </div>
+            </div>
+            <div class="service-slide">
+              <div class="service-visual">
+                <svg viewBox="0 0 160 160" fill="none" aria-hidden="true">
+                  <polyline points="24,112 56,86 80,100 136,48" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M114 48h22v22" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                  <line x1="24" y1="124" x2="136" y2="124" stroke="currentColor" stroke-width="1.5"/>
+                </svg>
+              </div>
+              <div class="service-text">
+                <span class="snum">05</span>
+                <h3>CRO &amp; Performance</h3>
+                <p>Improving usability, speed and conversions.</p>
+              </div>
+            </div>
+            <div class="service-slide">
+              <div class="service-visual">
+                <svg viewBox="0 0 160 160" fill="none" aria-hidden="true">
+                  <circle cx="80" cy="42" r="10" stroke="var(--accent)" stroke-width="1.6"/>
+                  <circle cx="34" cy="108" r="10" stroke="currentColor" stroke-width="1.6"/>
+                  <circle cx="126" cy="108" r="10" stroke="currentColor" stroke-width="1.6"/>
+                  <line x1="74" y1="50" x2="42" y2="100" stroke="currentColor" stroke-width="1.5"/>
+                  <line x1="86" y1="50" x2="118" y2="100" stroke="currentColor" stroke-width="1.5"/>
+                  <line x1="44" y1="108" x2="116" y2="108" stroke="currentColor" stroke-width="1.5"/>
+                </svg>
+              </div>
+              <div class="service-text">
+                <span class="snum">06</span>
+                <h3>Apps &amp; Integrations</h3>
+                <p>Custom functionality, APIs and third-party integrations.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="services-footer">
+          <div class="services-indicator"><b id="servicesIndicatorCurrent">01</b> / 06</div>
+          <div class="services-line"><div class="services-line-fill" id="servicesLineFill"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 07 HOW I WORK -->
+  <section id="process">
+    <div class="process-pin">
+      <div class="shell">
+        <div class="section-head" data-reveal>
+          <span class="eyebrow">How I Work</span>
+          <h2>A clear process. From the first conversation to launch.</h2>
+        </div>
+
+        <div class="process-stage-wrap" id="processStageWrap">
+          <div class="process-panel">
+            <div class="ptext">
+              <span class="pnum">01</span>
+              <h3>Discovery</h3>
+              <p>Understand your business, goals, target audience and project requirements.</p>
+            </div>
+            <div class="process-visual">
+              <svg viewBox="0 0 160 160" fill="none" aria-hidden="true">
+                <circle cx="68" cy="68" r="38" stroke="currentColor" stroke-width="1.5"/>
+                <line x1="95" y1="95" x2="130" y2="130" stroke="var(--accent)" stroke-width="3" stroke-linecap="round"/>
+                <circle cx="54" cy="58" r="3" fill="currentColor"/>
+                <circle cx="80" cy="50" r="3" fill="currentColor"/>
+                <circle cx="58" cy="83" r="3" fill="currentColor"/>
+                <circle cx="86" cy="78" r="3" fill="currentColor"/>
+              </svg>
+            </div>
+          </div>
+          <div class="process-panel">
+            <div class="ptext">
+              <span class="pnum">02</span>
+              <h3>Planning</h3>
+              <p>Define the store structure, functionality, priorities and project direction.</p>
+            </div>
+            <div class="process-visual">
+              <svg viewBox="0 0 160 160" fill="none" aria-hidden="true">
+                <rect x="62" y="20" width="36" height="22" rx="3" stroke="var(--accent)" stroke-width="1.5"/>
+                <line x1="80" y1="42" x2="80" y2="62" stroke="currentColor" stroke-width="1.5"/>
+                <line x1="30" y1="62" x2="130" y2="62" stroke="currentColor" stroke-width="1.5"/>
+                <line x1="30" y1="62" x2="30" y2="80" stroke="currentColor" stroke-width="1.5"/>
+                <line x1="80" y1="62" x2="80" y2="80" stroke="currentColor" stroke-width="1.5"/>
+                <line x1="130" y1="62" x2="130" y2="80" stroke="currentColor" stroke-width="1.5"/>
+                <rect x="14" y="80" width="32" height="20" rx="3" stroke="currentColor" stroke-width="1.5"/>
+                <rect x="64" y="80" width="32" height="20" rx="3" stroke="currentColor" stroke-width="1.5"/>
+                <rect x="114" y="80" width="32" height="20" rx="3" stroke="currentColor" stroke-width="1.5"/>
+              </svg>
+            </div>
+          </div>
+          <div class="process-panel">
+            <div class="ptext">
+              <span class="pnum">03</span>
+              <h3>Design &amp; Development</h3>
+              <p>Transform the approved direction into a polished Shopify experience with custom development and functionality.</p>
+            </div>
+            <div class="process-visual">
+              <svg viewBox="0 0 160 160" fill="none" aria-hidden="true">
+                <rect x="20" y="30" width="120" height="90" rx="8" stroke="currentColor" stroke-width="1.5"/>
+                <line x1="20" y1="48" x2="140" y2="48" stroke="currentColor" stroke-width="1.5"/>
+                <circle cx="30" cy="39" r="2.4" fill="currentColor"/>
+                <circle cx="38" cy="39" r="2.4" fill="currentColor"/>
+                <circle cx="46" cy="39" r="2.4" fill="currentColor"/>
+                <rect x="32" y="58" width="96" height="24" rx="3" stroke="var(--accent)" stroke-width="1.5"/>
+                <rect x="32" y="90" width="44" height="18" rx="3" stroke="currentColor" stroke-width="1.5"/>
+                <rect x="84" y="90" width="44" height="18" rx="3" stroke="currentColor" stroke-width="1.5"/>
+              </svg>
+            </div>
+          </div>
+          <div class="process-panel">
+            <div class="ptext">
+              <span class="pnum">04</span>
+              <h3>Testing &amp; Optimization</h3>
+              <p>Test responsiveness, functionality, usability and performance before delivery.</p>
+            </div>
+            <div class="process-visual">
+              <svg viewBox="0 0 160 160" fill="none" aria-hidden="true">
+                <rect x="16" y="54" width="52" height="68" rx="6" stroke="currentColor" stroke-width="1.5"/>
+                <rect x="78" y="38" width="38" height="82" rx="5" stroke="currentColor" stroke-width="1.5"/>
+                <rect x="126" y="60" width="18" height="52" rx="3" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M56 86 L66 96 L90 70" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+          </div>
+          <div class="process-panel">
+            <div class="ptext">
+              <span class="pnum">05</span>
+              <h3>Delivery</h3>
+              <p>Complete the final review, prepare the store for launch and hand over the project.</p>
+            </div>
+            <div class="process-visual">
+              <svg viewBox="0 0 160 160" fill="none" aria-hidden="true">
+                <rect x="20" y="30" width="120" height="90" rx="8" stroke="currentColor" stroke-width="1.5"/>
+                <line x1="20" y1="48" x2="140" y2="48" stroke="currentColor" stroke-width="1.5"/>
+                <rect x="32" y="58" width="96" height="50" rx="3" stroke="currentColor" stroke-width="1.5"/>
+                <circle cx="118" cy="98" r="17" fill="#fff" stroke="var(--accent)" stroke-width="2"/>
+                <path d="M110 98 L116 104 L127 90" stroke="var(--accent)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <div class="process-footer">
+          <div class="process-indicator"><b id="processIndicatorCurrent">01</b> / 05</div>
+          <div class="process-nav" id="processNav">
+            <div class="process-nav-line"></div>
+            <div class="process-nav-line-fill" id="processNavFill"></div>
+            <button class="process-nav-item" type="button" data-goto="0"><span class="process-nav-dot">01</span><span class="process-nav-label">Discovery</span></button>
+            <button class="process-nav-item" type="button" data-goto="1"><span class="process-nav-dot">02</span><span class="process-nav-label">Planning</span></button>
+            <button class="process-nav-item" type="button" data-goto="2"><span class="process-nav-dot">03</span><span class="process-nav-label">Design &amp; Dev</span></button>
+            <button class="process-nav-item" type="button" data-goto="3"><span class="process-nav-dot">04</span><span class="process-nav-label">Testing</span></button>
+            <button class="process-nav-item" type="button" data-goto="4"><span class="process-nav-dot">05</span><span class="process-nav-label">Delivery</span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 08 CLIENT REVIEWS -->
+  <section id="reviews">
+    <div class="shell">
+      <div class="section-head" data-reveal>
+        <span class="eyebrow">Client Reviews</span>
+        <h2>Real Words. Real Client Experiences.</h2>
+        <p>A few words from clients I've had the opportunity to work with.</p>
+      </div>
+      <div class="review-grid">
+
+        <article class="review-card">
+          <div class="review-top">
+            <div class="review-avatar" style="background:var(--accent)">P</div>
+            <div class="review-who">
+              <span class="review-name">pulgarcita10</span>
+              <span class="review-country">🇪🇸 Spain</span>
+            </div>
+          </div>
+          <div class="review-meta">
+            <span class="review-stars" aria-label="Rated 5 out of 5 stars">★★★★★</span>
+            <span class="review-score">5</span>
+            <span>•</span>
+            <span class="review-date">4 months ago</span>
+          </div>
+          <p class="review-text">Excellent work from start to finish. The designer was highly professional, understood my requirements perfectly, and created a beautiful website in a very short time. My niche is very specific and not easy to understand, but he took the time to study it carefully and delivered a design that exceeded my expectations. He was always responsive, cooperative, and willing to make every adjustment I requested. I highly recommend him to anyone looking for a talented and reliable web designer. Thank you for the outstanding work!</p>
+          <button class="review-more" type="button" hidden>Read more</button>
+          <div class="review-stats">
+            <div><b>$200–$400</b><span>Price</span></div>
+            <div class="review-stat-divider"></div>
+            <div><b>2 weeks</b><span>Duration</span></div>
+          </div>
+        </article>
+
+        <article class="review-card">
+          <div class="review-top">
+            <div class="review-avatar" style="background:var(--ink)">N</div>
+            <div class="review-who">
+              <span class="review-name">nacotter</span>
+              <span class="review-country">🇺🇸 United States</span>
+            </div>
+          </div>
+          <div class="review-meta">
+            <span class="review-stars" aria-label="Rated 5 out of 5 stars">★★★★★</span>
+            <span class="review-score">5</span>
+            <span>•</span>
+            <span class="review-date">1 year ago</span>
+          </div>
+          <p class="review-text">Danish has provided professional service to my business through continued dialogue until the work was completed to our satisfaction. I will continue to work with him as he shows his marketing prowess with my Shopify Store!</p>
+          <button class="review-more" type="button" hidden>Read more</button>
+          <div class="review-stats">
+            <div><b>$200–$400</b><span>Price</span></div>
+            <div class="review-stat-divider"></div>
+            <div><b>4 weeks</b><span>Duration</span></div>
+          </div>
+        </article>
+
+        <article class="review-card">
+          <div class="review-top">
+            <div class="review-avatar" style="background:var(--accent-to)">S</div>
+            <div class="review-who">
+              <span class="review-name">steven_moti</span>
+              <span class="review-country">🇨🇦 Canada</span>
+            </div>
+            <span class="review-badge">Ongoing collaboration</span>
+          </div>
+          <div class="review-meta">
+            <span class="review-stars" aria-label="Rated 5 out of 5 stars">★★★★★</span>
+            <span class="review-score">5</span>
+            <span>•</span>
+            <span class="review-date">1 year ago</span>
+          </div>
+          <p class="review-text">Danish was amazing to work with! He helped me build my Shopify store, set up a great layout, and even guided me on picking the right products. He's polite, dedicated, and really fun to collaborate with. I'm so happy with the result and would recommend him 100%! Again, thank you Danish!!</p>
+          <button class="review-more" type="button" hidden>Read more</button>
+          <div class="review-stats">
+            <div><b>$100–$200</b><span>Price</span></div>
+            <div class="review-stat-divider"></div>
+            <div><b>10 days</b><span>Duration</span></div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 09 WHY WORK WITH ME -->
+  <section id="why">
+    <div class="shell">
+      <div class="section-head" data-reveal>
+        <span class="eyebrow">Why Work With Me</span>
+        <h2>Design is half the job. The build is the other half.</h2>
+        <p>From pixel-perfect designs to fully functional Shopify experiences, I handle both sides of the process.</p>
+      </div>
+      <div class="compare-stage">
+        <div class="compare-col dd-design">
+          <span class="compare-label">01 — Design</span>
+          <div class="panel figma-panel">
+            <div class="browser-bar">
+              <span class="browser-dots"><span></span><span></span><span></span></span>
+              <span class="browser-tag">Figma — Design File</span>
+            </div>
+            <div class="panel-body"><img src="images/athlekt-figma-design.png" alt="Athlekt Figma design file" loading="lazy"></div>
+          </div>
+        </div>
+        <span class="compare-connector" aria-hidden="true">→</span>
+        <div class="compare-col dd-dev">
+          <span class="compare-label">02 — Development</span>
+          <div class="panel live-panel">
+            <div class="browser-bar">
+              <span class="browser-dots"><span></span><span></span><span></span></span>
+              <span class="browser-tag">athlekt.com — Live</span>
+            </div>
+            <div class="panel-body" id="whyLiveViewport">
+              <img src="images/athlekt-live-store.png" alt="Athlekt live Shopify store" id="whyLiveImg" loading="lazy">
+              <span class="hover-hint">Hover to scroll the homepage ↓</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10 EXPERIENCE & CLOSING -->
+  <section id="closing">
+    <div class="shell" style="position:relative;z-index:2">
+      <span class="eyebrow light">Experience</span>
+      <div class="stat-grid">
+        <div class="stat"><b data-count="3" data-suffix="+">0</b><span>Years of Shopify experience</span></div>
+        <div class="stat"><b data-count="70" data-suffix="+">0</b><span>Shopify projects delivered</span></div>
+        <div class="stat"><span style="font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;display:block">Top Rated</span><span>Upwork status</span></div>
+        <div class="stat"><b data-count="100" data-suffix="%">0</b><span>Job Success Score</span></div>
+      </div>
+      <div class="cta-block">
+        <div class="cta-copy">
+          <h2 id="closingHeading">Let's Build a Better Shopify Experience for Your Business.</h2>
+          <p>Tell me about your store and what isn't working — I'll show you how I'd fix it.</p>
+        </div>
+        <a href="mailto:danishshaikhshopify@gmail.com" class="btn light" data-reveal>Email Danish <span class="arrow">↗</span></a>
+      </div>
+      <footer class="legal">
+        <span>© 2026 Danish Shaikh. All rights reserved.</span>
+        <span>Shopify Developer &amp; Expert</span>
+      </footer>
+    </div>
+    <div class="watermark">SHOPIFY</div>
+  </section>
+
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+(function(){
+  "use strict";
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var hasGsap = typeof gsap !== 'undefined';
+  var isDesktop = window.matchMedia('(min-width: 900px)').matches;
+  if(hasGsap) gsap.registerPlugin(ScrollTrigger);
+  var animate = hasGsap && !reduced;
+
+  /* count-up (and its no-animation fallback) */
+  var countEls = document.querySelectorAll('[data-count]');
+  if(animate){
+    countEls.forEach(function(el){
+      var target = parseFloat(el.dataset.count), suffix = el.dataset.suffix || '';
+      ScrollTrigger.create({
+        trigger: el, start: 'top 90%', once: true,
+        onEnter: function(){
+          var obj = { val: 0 };
+          gsap.to(obj, { val: target, duration: 1.4, ease: 'power2.out',
+            onUpdate: function(){ el.textContent = Math.round(obj.val) + suffix; } });
+        }
+      });
+    });
+  } else {
+    countEls.forEach(function(el){ el.textContent = el.dataset.count + (el.dataset.suffix || ''); });
+  }
+
+  /* hero: entrance-only animation, no scroll trigger — sequenced headline -> supporting text -> portrait */
+  if(animate){
+    gsap.set('#home h1', { opacity: 0, y: 28 });
+    gsap.set('#home .eyebrow, #home .hero-role', { opacity: 0, y: 16 });
+    gsap.set('#home .hero-sub', { opacity: 0, y: 20 });
+    gsap.set('#home .hero-stats', { opacity: 0, y: 16 });
+    gsap.set('#home .hero-visual img', { opacity: 0, x: 70, filter: 'blur(18px)' });
+    gsap.set('#home .hero-badge', { opacity: 0, scale: .85 });
+
+    gsap.timeline({ delay: .2, defaults: { ease: 'power3.out' } })
+      .to('#home .eyebrow, #home .hero-role', { opacity: 1, y: 0, duration: .6, stagger: .06 })
+      .to('#home h1', { opacity: 1, y: 0, duration: .85 }, '-=0.35')
+      .to('#home .hero-sub', { opacity: 1, y: 0, duration: .7 }, '-=0.35')
+      .to('#home .hero-stats', { opacity: 1, y: 0, duration: .6 }, '-=0.35')
+      .to('#home .hero-visual img', { opacity: 1, x: 0, filter: 'blur(0px)', duration: 1.1 }, '-=0.5')
+      .to('#home .hero-badge', { opacity: 1, scale: 1, duration: .6, ease: 'back.out(2)', stagger: .12 }, '-=0.6');
+  }
+
+  /* generic baseline reveal for section intros (consistent visual language) */
+  if(animate){
+    gsap.utils.toArray('[data-reveal]').forEach(function(el){
+      gsap.fromTo(el, { opacity: 0, y: 26 }, {
+        opacity: 1, y: 0, duration: .9, ease: 'power3.out',
+        scrollTrigger: { trigger: el, start: 'top 90%' }
+      });
+    });
+  }
+
+  /* hover-to-autoscroll: shared by any browser-frame preview showing a tall homepage screenshot */
+  var HOVER_SCROLL_SPEED = 1.5; /* multiplier: raise to scroll faster, lower to slow down */
+  function setupHoverScroll(viewport, img){
+    function enterScroll(){
+      var dist = img.scrollHeight - viewport.clientHeight;
+      if(dist <= 0) return;
+      var duration = Math.max(5, dist / 110 / HOVER_SCROLL_SPEED);
+      img.style.transition = 'transform ' + duration + 's linear';
+      img.style.transform = 'translateY(-' + dist + 'px)';
+    }
+    function leaveScroll(){
+      img.style.transition = 'transform .6s ease';
+      img.style.transform = 'translateY(0)';
+    }
+    if(!reduced){
+      viewport.addEventListener('mouseenter', enterScroll);
+      viewport.addEventListener('mouseleave', leaveScroll);
+    }
+  }
+
+  /* featured store hover auto-scroll */
+  var viewport = document.getElementById('featuredViewport');
+  var img = document.getElementById('featuredImg');
+  var toggleBtn = document.getElementById('toggleBeforeBtn');
+  var frameLabel = document.getElementById('frameLabel');
+  setupHoverScroll(viewport, img);
+
+  /* why: design-to-development comparison — live store hover auto-scroll */
+  setupHoverScroll(document.getElementById('whyLiveViewport'), document.getElementById('whyLiveImg'));
+  toggleBtn.addEventListener('click', function(){
+    var showingAfter = img.dataset.state !== 'before';
+    img.style.transition = 'none';
+    img.style.transform = 'translateY(0)';
+    if(showingAfter){
+      img.src = 'images/testallwater-before.png';
+      img.alt = 'TestAllWater homepage before redesign';
+      img.dataset.state = 'before';
+      frameLabel.textContent = 'testallwater.co.uk — Before';
+      toggleBtn.textContent = 'See the improved "after" homepage';
+    } else {
+      img.src = 'images/testallwater-after.png';
+      img.alt = 'TestAllWater homepage after redesign';
+      img.dataset.state = 'after';
+      frameLabel.textContent = 'testallwater.co.uk — After';
+      toggleBtn.textContent = 'See the original "before" homepage';
+    }
+  });
+
+  /* featured store: distinct staggered-line + frame scale-in entrance */
+  if(animate){
+    gsap.from('.featured-copy > *', {
+      opacity: 0, y: 18, duration: .7, ease: 'power2.out', stagger: .08,
+      scrollTrigger: { trigger: '#featured', start: 'top 80%' }
+    });
+    gsap.from('#featured .browser-frame', {
+      opacity: 0, y: 30, scale: .96, duration: .9, ease: 'power3.out',
+      scrollTrigger: { trigger: '#featured', start: 'top 80%' }
+    });
+    gsap.from('#featured .toggle-before', {
+      opacity: 0, y: 10, duration: .6, delay: .3,
+      scrollTrigger: { trigger: '#featured', start: 'top 80%' }
+    });
+  }
+
+  /* selected work: data-driven scroll-triggered project carousel (add more objects here to extend it) */
+  var WORK_IMAGES = [
+    { src: 'images/athlekt-live-store.png', alt: 'Athlekt — Shopify store' },
+    { src: 'images/testallwater-after.png', alt: 'TestAllWater — Shopify store' },
+    { src: 'images/brayneco.png', alt: 'Brayne & Co — Shopify store' },
+    { src: 'images/Vitamin.png', alt: 'Vitamin — Shopify store' }
+  ];
+  var workFan = document.getElementById('workFan');
+  WORK_IMAGES.forEach(function(item){
+    var fig = document.createElement('figure');
+    fig.className = 'work-card';
+    var img = document.createElement('img');
+    img.src = item.src;
+    img.alt = item.alt;
+    img.loading = 'lazy';
+    fig.appendChild(img);
+    workFan.appendChild(fig);
+  });
+  var workCards = workFan.querySelectorAll('.work-card');
+  var WORK_N = workCards.length;
+
+  function workUpdate(progress){
+    var raw = progress * (WORK_N - 1);
+    workCards.forEach(function(card, i){
+      var dist = raw - i;
+      var absDist = Math.abs(dist);
+      var t = Math.min(absDist, 1);
+      var eased = t * (2 - t);
+      gsap.set(card, {
+        xPercent: -50, yPercent: -50,
+        x: -dist * 170,
+        scale: 1 - eased * 0.22,
+        opacity: Math.max(0, 1 - absDist * 0.55),
+        filter: 'blur(' + (eased * 3).toFixed(2) + 'px)',
+        zIndex: Math.round(100 - absDist * 10)
+      });
+    });
+  }
+
+  if(animate && isDesktop){
+    workUpdate(0);
+    ScrollTrigger.create({
+      trigger: '#work',
+      start: 'top top',
+      end: function(){ return '+=' + (window.innerHeight * WORK_N * 0.8); },
+      pin: '.work-pin',
+      scrub: 1,
+      invalidateOnRefresh: true,
+      onUpdate: function(self){ workUpdate(self.progress); },
+      onRefresh: function(){ workUpdate(0); }
+    });
+    window.addEventListener('load', function(){ ScrollTrigger.refresh(); workUpdate(0); });
+  } else if(animate){
+    gsap.set(workCards, { clearProps: 'opacity,transform' });
+    workCards.forEach(function(card){
+      gsap.from(card, {
+        opacity: 0, y: 24, duration: .7, ease: 'power2.out',
+        scrollTrigger: { trigger: card, start: 'top 90%' }
+      });
+    });
+  }
+
+  /* figma to live shopify (athlekt): reveal figma left, then live right, then connector, then internal auto-scroll */
+  var flFigmaCol = document.querySelector('#figma-to-live .figma-col');
+  var flLiveCol = document.querySelector('#figma-to-live .live-col');
+  var flConnector = document.querySelector('#figma-to-live .compare-connector');
+  var flLiveImg = document.getElementById('figmaLiveImg');
+  var flLiveBody = document.querySelector('#figma-to-live .live-panel .panel-body');
+
+  if(animate && isDesktop){
+    function flUpdate(p){
+      var figmaP = Math.max(0, Math.min(1, p / 0.25));
+      gsap.set(flFigmaCol, { opacity: figmaP, x: (1 - figmaP) * -60 });
+
+      var liveP = Math.max(0, Math.min(1, (p - 0.15) / 0.25));
+      gsap.set(flLiveCol, { opacity: liveP, x: (1 - liveP) * 60 });
+
+      var connP = Math.max(0, Math.min(1, (p - 0.3) / 0.15));
+      gsap.set(flConnector, { opacity: connP, scale: 0.6 + 0.4 * connP });
+
+      var scrollP = Math.max(0, Math.min(1, (p - 0.45) / 0.55));
+      var dist = Math.max(0, flLiveImg.scrollHeight - flLiveBody.clientHeight);
+      gsap.set(flLiveImg, { y: -scrollP * dist });
+    }
+    flUpdate(0);
+
+    ScrollTrigger.create({
+      trigger: '#figma-to-live',
+      start: 'top top',
+      end: '+=140%',
+      pin: true,
+      scrub: 1,
+      onUpdate: function(self){ flUpdate(self.progress); },
+      onRefresh: function(){ flUpdate(0); }
+    });
+
+    window.addEventListener('load', function(){ ScrollTrigger.refresh(); flUpdate(0); });
+  }
+
+  /* website before & after (testallwater): before slides from left, after from right */
+  if(animate){
+    gsap.timeline({ scrollTrigger: { trigger: '#before-after', start: 'top 75%' } })
+      .from('.ba-before', { opacity: 0, x: -70, duration: .9, ease: 'power3.out' })
+      .from('.ba-after', { opacity: 0, x: 70, duration: .9, ease: 'power3.out' }, '<0.1');
+  }
+
+  /* services: pinned horizontal peek-slider — one active service at a time */
+  var servicesViewport = document.getElementById('servicesViewport');
+  var servicesTrack = document.getElementById('servicesTrack');
+  var serviceSlides = document.querySelectorAll('.service-slide');
+  var SERVICES_N = serviceSlides.length;
+  var servicesLineFill = document.getElementById('servicesLineFill');
+  var servicesIndicator = document.getElementById('servicesIndicatorCurrent');
+
+  function servicesMaxScroll(){
+    return Math.max(0, servicesTrack.scrollWidth - servicesViewport.clientWidth);
+  }
+
+  function servicesUpdate(progress){
+    var maxScroll = servicesMaxScroll();
+    gsap.set(servicesTrack, { x: -maxScroll * progress });
+    var activeIdx = Math.min(SERVICES_N - 1, Math.max(0, Math.round(progress * (SERVICES_N - 1))));
+    serviceSlides.forEach(function(slide, i){
+      slide.classList.toggle('is-active', i === activeIdx);
+    });
+    servicesLineFill.style.width = (Math.max(0, Math.min(1, progress)) * 100) + '%';
+    servicesIndicator.textContent = String(activeIdx + 1).padStart(2, '0');
+  }
+
+  if(animate && isDesktop){
+    servicesUpdate(0);
+
+    ScrollTrigger.create({
+      trigger: '#services',
+      start: 'top top',
+      end: function(){ return '+=' + (servicesMaxScroll() * 2.2 + window.innerHeight); },
+      pin: true,
+      scrub: 1,
+      invalidateOnRefresh: true,
+      onUpdate: function(self){ servicesUpdate(self.progress); },
+      onRefresh: function(){ servicesUpdate(0); }
+    });
+
+    window.addEventListener('load', function(){ ScrollTrigger.refresh(); servicesUpdate(0); });
+  } else if(animate){
+    gsap.set(serviceSlides, { clearProps: 'opacity,transform' });
+    serviceSlides.forEach(function(slide){
+      gsap.from(slide, {
+        opacity: 0, y: 24, duration: .7, ease: 'power2.out',
+        scrollTrigger: { trigger: slide, start: 'top 90%' }
+      });
+    });
+  }
+
+  /* how I work: pinned horizontal process — one active stage at a time, driven by scroll progress */
+  var processPanels = document.querySelectorAll('.process-panel');
+  var processNavItems = document.querySelectorAll('.process-nav-item');
+  var processNavFill = document.getElementById('processNavFill');
+  var processIndicator = document.getElementById('processIndicatorCurrent');
+  var PROCESS_N = processPanels.length;
+
+  function processUpdate(progress){
+    var raw = progress * PROCESS_N;
+    processPanels.forEach(function(panel, i){
+      var dist = raw - (i + 0.5);
+      var absDist = Math.abs(dist);
+      var opacity = Math.max(0, 1 - absDist * 1.5);
+      gsap.set(panel, {
+        opacity: opacity,
+        x: -dist * 70,
+        scale: 1 - Math.min(absDist, 1) * 0.08,
+        pointerEvents: opacity > 0.5 ? 'auto' : 'none'
+      });
+    });
+    var activeIdx = Math.min(PROCESS_N - 1, Math.max(0, Math.round(raw - 0.5)));
+    processNavItems.forEach(function(item, i){
+      item.classList.toggle('is-active', i === activeIdx);
+      item.classList.toggle('is-done', i < activeIdx);
+    });
+    processNavFill.style.width = (Math.max(0, Math.min(1, progress)) * 100) + '%';
+    processIndicator.textContent = String(activeIdx + 1).padStart(2, '0');
+  }
+
+  if(animate && isDesktop){
+    processUpdate(0);
+
+    var processTrigger = ScrollTrigger.create({
+      trigger: '#process',
+      start: 'top top',
+      end: function(){ return '+=' + (window.innerHeight * 4.5); },
+      pin: true,
+      scrub: 1,
+      invalidateOnRefresh: true,
+      onUpdate: function(self){ processUpdate(self.progress); },
+      onRefresh: function(){ processUpdate(0); }
+    });
+
+    processNavItems.forEach(function(item, i){
+      item.addEventListener('click', function(){
+        var target = processTrigger.start + (processTrigger.end - processTrigger.start) * ((i + 0.5) / PROCESS_N);
+        window.scrollTo({ top: target, behavior: 'smooth' });
+      });
+    });
+
+    window.addEventListener('load', function(){ ScrollTrigger.refresh(); processUpdate(0); });
+  } else if(animate){
+    gsap.set(processPanels, { clearProps: 'opacity,transform' });
+    processPanels.forEach(function(panel){
+      gsap.from(panel, {
+        opacity: 0, y: 24, duration: .7, ease: 'power2.out',
+        scrollTrigger: { trigger: panel, start: 'top 90%' }
+      });
+    });
+  }
+
+  /* client reviews: read-more only shown when text actually overflows its clamp */
+  var reviewTexts = document.querySelectorAll('.review-text');
+  function refreshReviewClamps(){
+    reviewTexts.forEach(function(text){
+      var btn = text.nextElementSibling;
+      if(text.classList.contains('is-expanded')){ btn.hidden = false; return; }
+      btn.hidden = text.scrollHeight <= text.clientHeight + 1;
+    });
+  }
+  reviewTexts.forEach(function(text){
+    var btn = text.nextElementSibling;
+    btn.addEventListener('click', function(){
+      var expanded = text.classList.toggle('is-expanded');
+      btn.textContent = expanded ? 'Show less' : 'Read more';
+    });
+  });
+  refreshReviewClamps();
+  window.addEventListener('resize', refreshReviewClamps);
+  window.addEventListener('load', refreshReviewClamps);
+
+  /* client reviews: cards fade up with a gentle stagger */
+  if(animate){
+    gsap.from('.review-card', {
+      opacity: 0, y: 28, duration: .7, ease: 'power2.out', stagger: .12,
+      scrollTrigger: { trigger: '.review-grid', start: 'top 85%' }
+    });
+  }
+
+  /* why work with me: design reveals from the left, development from the right, then the connector */
+  if(animate){
+    gsap.timeline({ scrollTrigger: { trigger: '#why .compare-stage', start: 'top 78%' } })
+      .from('#why .dd-design', { opacity: 0, x: -70, duration: .9, ease: 'power3.out' })
+      .from('#why .dd-dev', { opacity: 0, x: 70, duration: .9, ease: 'power3.out' }, '<0.15')
+      .from('#why .compare-connector', { opacity: 0, scale: .6, duration: .5, ease: 'back.out(2)' }, '-=0.3');
+  }
+
+  /* closing: heading wipes up into view, stats pop in with a stagger */
+  if(animate){
+    gsap.fromTo('#closingHeading',
+      { clipPath: 'inset(0% 0% 100% 0%)' },
+      { clipPath: 'inset(0% 0% 0% 0%)', duration: 1, ease: 'power3.out',
+        scrollTrigger: { trigger: '#closing', start: 'top 75%' } });
+
+    gsap.from('.stat', {
+      opacity: 0, y: 20, scale: .9, duration: .6, ease: 'power2.out', stagger: .08,
+      scrollTrigger: { trigger: '.stat-grid', start: 'top 85%' }
+    });
+  }
+})();
+</script>
+</body>
+</html>
